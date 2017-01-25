@@ -1,9 +1,12 @@
 var express = require('express'),
-    app = express();
-
+    app = express(),
+    logger = require('morgan');
+// middleware
+app.use(logger('dev'))
 app.use(express.static(__dirname + '/public'));
-app.get('/hello.txt', function(req, res) {
-    res.sendfile(__dirname + '/public/hello.txt')
+app.use(function(req, res, next) {
+    console.log('my custom middleware!');
+    next();
 });
 
 app.listen(3000);
