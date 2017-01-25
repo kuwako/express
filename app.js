@@ -1,12 +1,9 @@
 var express = require('express'),
     app = express();
 
-app.get('/users/:name', function(req, res) {
-    res.send('hello, ' + req.params.name);
-});
-
-app.get('/items/:id([0-9]+)', function(req, res) {
-    res.send('item no.' + req.params.id);
+app.use(express.static(__dirname + '/public'));
+app.get('/hello.txt', function(req, res) {
+    res.sendfile(__dirname + '/public/hello.txt')
 });
 
 app.listen(3000);
