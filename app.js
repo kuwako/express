@@ -1,12 +1,15 @@
 var express = require('express'),
     app = express(),
     logger = require('morgan');
+
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
+
 // middleware
 app.use(logger('dev'))
 app.use(express.static(__dirname + '/public'));
-app.use(function(req, res, next) {
-    console.log('my custom middleware!');
-    next();
+app.get('/', function(req, res) {
+    res.render('index', {title: "TITLE"});
 });
 
 app.listen(3000);
