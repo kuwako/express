@@ -1,2 +1,5 @@
 # express
-expressの練習
+nodejsのライブラリexpressのサンプル
+
+dotinstallをならってます
+
