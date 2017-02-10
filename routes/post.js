@@ -20,4 +20,7 @@ exports.create = function(req, res) {
     posts.push(post);
     res.redirect('/');
 }
+exports.edit=function(req, res) {
+    res.render('posts/edit', { post: posts[req.params.id], id: req.params.id });
+}
 
